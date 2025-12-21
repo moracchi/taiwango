@@ -1,0 +1,233 @@
+:root {
+    --primary-color: #B22222;
+    /* 台湾の伝統的な赤 */
+    --primary-dark: #8B0000;
+    --accent-color: #DAA520;
+    /* 落ち着いたゴールド */
+    --bg-color: #F5F5F5;
+    --card-bg: #FFFFFF;
+    --text-main: #333333;
+    --text-sub: #666666;
+    --border-radius: 12px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-active: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Noto Sans JP', 'Noto Sans TC', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-bottom: 80px;
+}
+
+/* Header */
+.app-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border-bottom: 4px solid var(--accent-color);
+}
+
+.app-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.app-header p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Category Section */
+.category-section {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.category-header {
+    background-color: #fff;
+    padding: 16px 20px;
+    border-bottom: 2px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-title {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-title::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 24px;
+    background-color: var(--accent-color);
+    border-radius: 4px;
+}
+
+.category-description {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+    line-height: 1.6;
+}
+
+/* Phrase List */
+.phrase-list {
+    list-style: none;
+}
+
+.phrase-item {
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.phrase-item:last-child {
+    border-bottom: none;
+}
+
+.phrase-button {
+    width: 100%;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+}
+
+.phrase-content {
+    flex: 1;
+    margin-right: 16px;
+}
+
+.phrase-jp {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-main);
+}
+
+.phrase-zh {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    font-family: 'Noto Sans TC', sans-serif;
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+
+.phrase-reading {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+}
+
+.phrase-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: #FFF0F0;
+    border-radius: 50%;
+    color: var(--primary-color);
+    flex-shrink: 0;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.phrase-item:active {
+    background-color: #FFF5F5;
+}
+
+.phrase-item:active .phrase-action {
+    transform: scale(0.9);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Icons */
+.icon-speaker {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-sub);
+    font-size: 0.8rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Utility */
+.highlight {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 480px) {
+    .container {
+        padding: 12px;
+    }
+
+    .category-header {
+        padding: 12px 16px;
+    }
+
+    .phrase-button {
+        padding: 14px 16px;
+    }
+
+    .phrase-zh {
+        font-size: 1.25rem;
+    }
+}
